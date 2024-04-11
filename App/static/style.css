@@ -1,0 +1,35 @@
+
+.body{
+  background-color: rgb(128, 175, 216);
+}
+
+.card {
+    background-color: rgb(170, 165, 165);
+    width: 325px;
+    height: 254px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(66, 50, 50, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease;
+    display: inline-block; /* Display the cards inline */
+    margin: 20px;
+}
+
+
+.card:hover {
+    transform: translateY(-10px);
+  }
+
+  .card-container{
+  display: flex;
+  justify-content:left;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  }
+
+  .card img{
+    width: 100%;
+    height: auto;
+    
+  }

@@ -1,13 +1,47 @@
 {% extends "layout.html" %}
-{% block title %}Flask MVC App{% endblock %}
-{% block page %}Flask MVC App{% endblock %}
+{% block title %}Workout Remixer App{% endblock %}
+{% block page %}Workout Remixer App{% endblock %}
 
 {{ super() }}
 
 {% block content %}
-    <h1>WORKOUT PLANNER</h1>
+<link rel="stylesheet" href="styles.css">
+    <h1>Workout Remixer App </h1>
     {% if is_authenticated %}
         <p> Welcome {{current_user.username}} </p>
     {% endif %}
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+    <p>Best Version of YOU!</p>
+    
+  <div class="card-container">
+        <div class="card">
+            <img src="https://cdn.shopify.com/s/files/1/1214/5580/files/Muscle_Group_Forearms.jpg?v=1601051687" alt="card1">
+            <div class="card-content">
+                <h2>Foreams</h2>
+            </div>
+        </div>
+    </div>
+ 
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="https://cdn.shopify.com/s/files/1/1214/5580/files/Muscle_Group_Biceps.jpg?v=1601051495" alt="card2">
+            <div class="card-content">
+                <h2>Biceps</h2>
+            </div>
+        </div>
+    </div> 
+   
+<div class="card-container">
+    <div class="card">
+        <img src="https://cdn.shopify.com/s/files/1/1214/5580/files/Muscle_Group_Abs.jpg?v=1601051622" alt="card3">
+        <div class="card-content">
+            <h2>Abdominal</h2>
+        </div>
+    </div>
+</div> 
+   
+      
+ 
+
+    
 {% endblock %}

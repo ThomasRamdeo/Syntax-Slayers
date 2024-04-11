@@ -14,6 +14,7 @@ from App.controllers import (
 )
 
 from App.views import views
+#from App.Model import Exercises
 
 def add_views(app):
     for view in views:
@@ -38,3 +39,31 @@ def create_app(overrides={}):
     app.app_context().push()
     return app
 
+
+#**************Routes****************
+#@app.route('/exercises', methods=['GET'])
+#def get_exercises():
+#    try:
+#        exercises = Exercises.query.all()
+#        exercise_list = [exercise.get_json() for exercise in exercises]
+#        return jsonify(exercise_list), 200
+#    except Exception as e:
+#        return jsonify({'error': str(e)}), 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
