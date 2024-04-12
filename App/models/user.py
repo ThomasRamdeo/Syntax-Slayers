@@ -28,7 +28,7 @@ class User(db.Model):
 class Exercises(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     title = db.Column(db.String(256), nullable=False)
-    desc = db.Column(db.String(5000), nullable=False)
+    desc = db.Column(db.String(5000))
     type = db.Column(db.String(256), nullable=False)  
     bodypart = db.Column(db.String(256), nullable=False)  
     equipment = db.Column(db.String(256), nullable=False)  

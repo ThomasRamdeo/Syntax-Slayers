@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}All Exercises{% endblock %}
+{% block page %}All Exercises{% endblock %}
+{{ super() }}
+{% block content %}
+<div class="row">
+    <h1>ALL WORKOUTS</h1>
+    <form id="add-to-routine-form">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Body Part</th>
+                    <th>Equipment</th>
+                    <th>Level</th>
+                    <th>Rating</th>
+                    <th>Select</th>
+                </tr>
+            </thead>
+            <tbody id="exercises-list">
+                {% for exercise in exercises %}
+                <tr>
+                    <td>{{ exercise.title }}</td>
+                    <td>{{ exercise.desc }}</td>
+                    <td>{{ exercise.type }}</td>
+                    <td>{{ exercise.bodypart }}</td>
+                    <td>{{ exercise.equipment }}</td>
+                    <td>{{ exercise.level }}</td>
+                    <td>{{ exercise.rating }}</td>
+                    <td><input type="checkbox" name="exercise_id" value="{{ exercise.id }}"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="button" onclick="addToRoutine()">Add Selected Exercises</button>
+    </form>
+</div>
+{% endblock %}
