@@ -1,7 +1,10 @@
 
+
 .body{
   background-color: rgb(128, 175, 216);
 }
+
+
 .card-container{
   display: flex;
   justify-content:flex-start;
@@ -19,7 +22,6 @@
     font-family: "Poppins", sans-serif;
     transition: all 0.3s ease;
     margin: 30px;
-    
 }
 
 .card:hover {
@@ -31,7 +33,7 @@
   .card img{
     width: 100%;
     height: auto;
-   
+    
   }
 
 .intro{

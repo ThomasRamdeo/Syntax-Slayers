@@ -38,3 +38,9 @@ def create_user_endpoint():
 @user_views.route('/static/users', methods=['GET'])
 def static_user_page():
   return send_from_directory('static', 'static-user.html')
+
+
+@user_views.route('/exercises', methods=['GET'])
+def get_exercises():
+    return render_template('exercises.html'), 500
+

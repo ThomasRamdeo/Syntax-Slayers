@@ -19,7 +19,9 @@ from App.controllers import (
 def add_views(app):
     for view in views:
         app.register_blueprint(view)
+
 app = Flask(__name__)
+
 def create_app(overrides={}):
     app = Flask(__name__, static_url_path='/static')
     load_config(app, overrides)
@@ -30,7 +32,7 @@ def create_app(overrides={}):
     add_views(app)
     init_db(app)
     jwt = setup_jwt(app)
-    
+
     @jwt.invalid_token_loader
     @jwt.unauthorized_loader
     def custom_unauthorized_response(error):
@@ -39,7 +41,7 @@ def create_app(overrides={}):
     app.app_context().push()
     return app
 
-
+"""
 def initialize_db():
     db.drop_all()
     db.create_all()
@@ -60,21 +62,41 @@ def initialize_db():
             db.session.add(exercise)
     db.session.commit()
 
-
+"""
+def initialize_db():
+    db.drop_all()
+    db.create_all()
+    csv_file_path = os.path.join(os.path.dirname(__file__), 'csv/WorkoutDataset.csv')
+    with open(csv_file_path, encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            exercise = Exercises(
+                id=int(row['id']),
+                title=row['title'],
+                desc=row['desc'],
+                type=row['type'],
+                bodypart=row['bodypart'],
+                equipment=row['equipment'],
+                level=row['level'],
+                rating=int(row['rating']),
+                rating_desc=row['rating_desc']
+            )
+            db.session.add(exercise)
+    db.session.commit()
 
 #**************Routes****************
         #Route to access all Excercises
-'''
+"""
 @app.route('/exercises', methods=['GET'])
 @jwt_required()  
 def get_exercises():
     try:
-        exercises = Exercises.query.all()
+        exercises = Exercises.query.all().get()
         exercise_list = [exercise.get_json() for exercise in exercises]
         return jsonify(exercise_list), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-'''
+"""
 
 @app.route('/exercises', methods=['GET'])
 @jwt_required()  # Requires JWT token for access
@@ -84,8 +106,7 @@ def get_exercises():
         return render_template('exercises.html', exercises=exercises)
     except Exception as e:
         return render_template('401.html', error=str(e)), 500
-
-
+"""
 # Route to get logged-in user's routines
 @app.route('/user_routines', methods=['GET'])
 def get_user_routines():
@@ -96,6 +117,6 @@ def get_user_routines():
         return jsonify(user_routines_json), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
-
+"""
 if __name__ == '__main__':
     app.run(debug=True)

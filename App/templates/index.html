@@ -5,22 +5,31 @@
 {{ super() }}
 
 {% block content %}
+<style>
+    body {
+        background-color: #0077B6;
+    }
+</style>
 <link rel="stylesheet" href="styles.css">
-    <h1> Level up Your Game </h1>
+    <h1> <b>Plan Your Fitness Journey</b> </h1>
     {% if is_authenticated %}
         <p> Welcome {{current_user.username}} </p>
     {% endif %}
-    <p>Select your work out plan:</p>
+    <p><b>Browse Workouts:</b></p>
     
     
  <div class="card-container">
         <div class="card">
             <img src="https://cdn.shopify.com/s/files/1/1214/5580/files/Muscle_Group_Biceps.jpg?v=1601051495" alt="card2">
             <div class="card-content">
+                <div class="intro">
+                    <button> Button
+                    </button>
+                </div>
                 <h2>Biceps</h2>
             </div>
         </div>
-        
+    
         <div class="card">
             <img src="https://cdn.shopify.com/s/files/1/1214/5580/files/Muscle_Group_Abs.jpg?v=1601051622" alt="card3">
             <div class="card-content">
@@ -55,6 +64,12 @@
                 <h2>Calves</h2>
             </div>
         </div>
+
+        
+
+
+
+    </div>
 
 
 

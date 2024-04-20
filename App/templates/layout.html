@@ -20,8 +20,8 @@
               <ul id="nav-mobile" class="left">
                   {% if is_authenticated %}
                   <li><a href="/">Home</a></li>
-                  <li><a href="/exercises.html">All Exercises</a></li>
-                    <li><a href="/user_routines">My Routines</a></li>
+                  <li><a href="{{ url_for('user_views.get_exercises')}}">All Exercises</a></li>
+                  <li><a href="/user_routines">My Routines</a></li>
                   {% endif %}
                   
               </ul>
